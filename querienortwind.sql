@@ -1,0 +1,22 @@
+-- Insertar un nuevo cliente
+-- Insertar un nuevo empleado
+-- Insertar un nuevo producto
+-- Consultar todos los clientes
+-- Consultar clientes por país
+-- Consultar empleados y sus títulos
+-- Consultar productos con stock bajo
+-- Actualizar la dirección de un cliente
+-- Actualizar el precio de un producto
+-- Eliminar un cliente
+-- Consultar pedidos con detalles del cliente
+-- Consultar detalles de los pedidos junto con información del producto
+-- Consultar clientes de una región específica
+-- Total de ventas (suma de precios unitarios) por pedido
+-- Promedio de precios unitarios de los productos
+-- Precio máximo y mínimo de productos
+-- Contar el número de productos en cada categoría
+-- Total de ventas por cliente
+-- Consultar productos cuyo nombre contiene 'Widget'
+-- Consultar pedidos realizados por ciertos clientes
+-- Consultar productos ordenados por precio descendente
+-- Consultar clientes ordenados por nombre de la empresa

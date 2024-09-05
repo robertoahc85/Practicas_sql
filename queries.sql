@@ -21,11 +21,17 @@ FROM movimiento_stock
 GROUP BY tipo_moviento
 
 -- calcular promedio de los precios de todos los productos
-SELECT AVG(precios) as precio_promedio
-FROM productos
+SELECT AVG(precio) as precio_promedio
+FROM "prueba 1"
 
 -- calcular  precio mas bajo y mas  alto de los productos
 
 SELECT MIN(precios) as precio_minimo, MAX(precios) as precio_maximo
 FROM productos
 
+CREATE TABLE IF NOT EXISTS "prueba 1"
+(
+    id integer NOT NULL,
+    precio float,
+    PRIMARY KEY (id)
+);
