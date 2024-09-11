@@ -111,6 +111,20 @@ from ventas
  from ventas
  where EXTRACT(MONTH FROM  fecha_venta) =8
 
+--  agrupar ventas por anio
+SELECT date_part('year', fecha_venta) as anio, COUNT(*) as total_ventas
+from ventas
+GROUP BY date_part('year', fecha_venta)
+ORDER BY anio
+
+
+-- Agrupor ventas por mes
+SELECT date_part('month', fecha_venta) as mes, sum(v.cantidad * p.precio) as ingresos
+from ventas v
+JOIN productos p on  v.id_producto = p.id_producto
+GROUP BY date_part('month', fecha_venta)
+ORDER BY mes
+
 -- Ventas realizadas en un año específico
 
 -- Número de ventas por mes
@@ -121,10 +135,41 @@ from ventas
 
 -- #ejemplo de case when
 
--- Clasificar ventas en categorías de cantidad
+-- Clasificar ventas en categorías de cantidad (Alta, media o Baja)
+SELECT id_venta, cantidad, 
+    CASE
+        WHEN CANTIDAD > 100 THEN 'ALTA'
+        WHEN CANTIDAD BETWEEN 50 AND 100 THEN 'Media'
+        ELSE 'BAJA'
+    END
+from ventas
 
--- Ejemplo 2: Asignar descuentos según el precio del producto
+-- Ejemplo 2: Asignar descuentos según el precio del producto 10% productos  caro, 5% productos medios, 1% productos barato
+SELECT nombre, precio, 
+    CASE 
+        WHEN  precio > 100 THEN  '10%'
+        WHEN precio BETWEEN 50 AND 100 THEN '5% descuento'
+        ELSE ' 1%'
+    END as tipo_descuento
+FROM productos
 
--- Ejemplo 3: Clasificar ventas por estación del año
+-- Ejemplo 3: Clasificar ventas por estación del año Invierno (6,7,8), Primavera(9,10,11), Verano(12,1,2), otono(3,4,5)
 
--- Ejemplo 4: Calcular el estado del stock de productos
+SELECT id_venta, fecha_venta,
+    CASE 
+        WHEN EXTRACT(MONTH FROM fecha_venta) IN (6,7,8)  THEN  'INVIERNO' 
+        WHEN EXTRACT(MONTH FROM fecha_venta) IN (9,10,11)  THEN  'PRIMAVERA' 
+        WHEN EXTRACT(MONTH FROM fecha_venta) IN (12,1,2)  THEN  'VERANO' 
+        ELSE 'OTONO'
+    END as Estacion
+FROM ventas
+
+-- Ejemplo 4: Calcular el estado del stock de productos Poco stock <10,  stock moderado 10 a 50,  stock alto > 50
+
+SELECT nombre, cantidad,
+    CASE 
+        WHEN  CANTIDAD <10 THEN 'POCO STOCK' 
+        WHEN CANTIDAD  BETWEEN 10  AND 50 THEN 'STOCK MODERADO'
+        ELSE 'STOCK ALTO'
+    END as estado_stock
+from productos
