@@ -172,16 +172,16 @@ INSERT INTO public.proyecto_recursos_humanos (id_empleado, id_proyecto) VALUES
 
 
 INSERT INTO public.maquinarias (nombre, descripcion, id_proyecto) VALUES 
-('Excavadora hidráulica', 'Maquinaria utilizada para excavaciones de terrenos y demolición de estructuras.', 101),
-('Bulldozer', 'Máquina de movimiento de tierra utilizada para empujar grandes cantidades de material.', 102),
-('Grua torre', 'Grúa de gran altura utilizada en la construcción de edificios altos.', 103),
-('Compactadora', 'Máquina que se utiliza para compactar la tierra y pavimento.', 104),
-('Retroexcavadora', 'Maquinaria de construcción que combina una excavadora con una pala cargadora.', 101),
-('Montacargas', 'Vehículo industrial usado para levantar y transportar materiales pesados.', 105),
-('Hormigonera', 'Máquina utilizada para mezclar cemento, arena y agua para producir concreto.', 106),
-('Perforadora', 'Equipo utilizado para perforar agujeros profundos en terrenos y estructuras.', 103),
-('Rodillo compactador', 'Equipo usado para compactar tierra, grava y asfalto en proyectos de construcción de carreteras.', 104),
-('Cargador frontal', 'Maquinaria usada para cargar material en camiones o tolvas en obras de construcción.', 101);
+('Excavadora hidráulica', 'Maquinaria utilizada para excavaciones de terrenos y demolición de estructuras.', 1),
+('Bulldozer', 'Máquina de movimiento de tierra utilizada para empujar grandes cantidades de material.', 2),
+('Grua torre', 'Grúa de gran altura utilizada en la construcción de edificios altos.', 3),
+('Compactadora', 'Máquina que se utiliza para compactar la tierra y pavimento.', 4),
+('Retroexcavadora', 'Maquinaria de construcción que combina una excavadora con una pala cargadora.', 1),
+('Montacargas', 'Vehículo industrial usado para levantar y transportar materiales pesados.', 5),
+('Hormigonera', 'Máquina utilizada para mezclar cemento, arena y agua para producir concreto.', 6),
+('Perforadora', 'Equipo utilizado para perforar agujeros profundos en terrenos y estructuras.', 3),
+('Rodillo compactador', 'Equipo usado para compactar tierra, grava y asfalto en proyectos de construcción de carreteras.', 4),
+('Cargador frontal', 'Maquinaria usada para cargar material en camiones o tolvas en obras de construcción.', 1);
 
 INSERT INTO public.materiales (nombre, descripcion, id_proveedor, id_status) VALUES 
 ('{Acero, Hierro}', 'Materiales estructurales utilizados para la construcción de edificios y puentes.', 1, 1),
