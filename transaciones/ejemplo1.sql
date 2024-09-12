@@ -41,9 +41,7 @@ ROLLBACK;   -- Decides deshacer la transacción
 
 BEGIN;
 
-
-INSERT INTO productos (nombre, precio) VALUES ('Producto D', 250);
-
+INSERT INTO productos (nombre, precio) VALUES ('Producto H', 250);
 
 SAVEPOINT sp1; -- Crear un punto de guardado
 
@@ -52,6 +50,10 @@ UPDATE productos SET precio = 300 WHERE nombre = 'Producto B';-- Actualización 
 ROLLBACK TO SAVEPOINT sp1;  -- Se deshace la actualización, pero no la inserción
 
 COMMIT;-- Finalizas la transacción con los cambios restantes
+
+
+
+
 
 --------Ejemplo 3: Transacción con error y ROLLBACK
 BEGIN;
@@ -70,9 +72,7 @@ ROLLBACK; -- Se produce un error aquí, así que se deshace todo
 
 BEGIN;
 
-
-INSERT INTO empleados (nombre, salario) VALUES ('Diego', 3300);-- Inserción de un empleado
-
+INSERT INTO empleados (nombre, salario) VALUES ('Roberto', 4300);-- Inserción de un empleado
 
 SAVEPOINT sp1; -- Crear un punto de guardado
 
@@ -81,7 +81,6 @@ UPDATE productos SET precio = 180 WHERE nombre = 'Producto A'; -- Intento de act
 
 
 SAVEPOINT sp2; -- Crear un segundo punto de guardado
-
 
 UPDATE productos SET precio = 250 WHERE nombre = 'Producto X'; -- Intento de actualizar un producto inexistente, causando un error
 
