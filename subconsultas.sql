@@ -49,7 +49,7 @@ UPDATE empleados SET id_departamento = 2 WHERE departamento = 'Marketing';
 UPDATE empleados SET id_departamento = 3 WHERE departamento = 'Recursos Humanos';
 
 ALTER TABLE empleados DROP COLUMN departamento;
-ALTER TABLE empleados DROP COLUMN departamento;
+
 
 
 
@@ -71,10 +71,22 @@ SELECT nombre, salario
 from empleados
 where salario > (select avg(salario) from empleados)
 
--- 3. Encontrar los empleados  cuyo salario es mayor que salario promedio   de su departmento
-SELECT nombre, departamento, salario
-from empleados e1
-where salario > (select avg(salario) from empleados e2 
-where e1.)
+-- 3.  Encontrar los nombre de los departamentos donde el salario  promedio de los empleados sea superior a  3000
+select nombre_departamento
+from departamentos
+where id_departamento IN(select id_departamento from empleados group by id_departamento
+HAVING avg(salario) >3000)
+
+-- 4. Contar cuantos empleados hay cada departamentos
+
+SELECT nombre_departamento,(SELECT count(*) from empleados where empleados.id_departamento = departamentos.id_departamento) as total_empleados
+from departamentos
+
+SELECT nombre_departamento, COUNT(*) AS cantidad_empleados
+FROM departamentos
+JOIN empleados ON departamentos.id_departamento = empleados.id_departamento
+GROUP BY nombre_departamento
+
+
 
 
